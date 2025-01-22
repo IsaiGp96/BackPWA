@@ -19,6 +19,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 
+
 # OS generated files
 .DS_Store
 Thumbs
