@@ -2,15 +2,20 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// Middleware para manejar JSON
-app.use(express.json());
+//
+const GetDataFromFireBase = require("../src/Controller/dbController")
 
-// Ruta principal
-app.get('/', (req, res) => {
-  res.send('¡Servidor backend con Express está funcionando!');
-});
+//
+app.use("/api", GetDataFromFireBase)
 
-// Iniciar el servidor
+
+// Middleware para manejar JSON (asegúrate de agregarlo antes de las rutas)
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+// EndPoint para obtener datos de la base de datos
+
+// Inicia el servidor
 app.listen(port, () => {
-  console.log("Servidor escuchando en http://localhost:${port}");
+  console.log(`Servidor escuchando en http://localhost:${port}`);
 });
