@@ -5,7 +5,7 @@ const router = express.Router(); // Crear una instancia de Router
 // Endpoint para obtener datos de Firestore
 router.get('/getDataFromFirebase', async (req, res) => {
   try {
-    const collection = db.collection('TestCollection'); // Cambia 'TestCollection' según tu colección
+    const collection = db.collection('Usuarios'); // Cambia 'TestCollection' según tu colección
     const snapshot = await collection.get();
 
     if (snapshot.empty) {
