@@ -24,4 +24,32 @@ router.get('/getDataFromFirebase', async (req, res) => {
   }
 });
 
+// Endpoint para insertar un comentario en Firestore
+router.post('/addComment', async (req, res) => {
+  try {
+    const { username, email, comentario } = req.body; // Extraer datos del request
+
+    // 🔍 Validación de campos requeridos
+    if (!username || !email || !comentario) {
+      return res.status(400).send({ error: 'Todos los campos son requeridos' });
+    }
+
+    // Crear referencia a la colección 'Comentarios' con ID autogenerado
+    const newCommentRef = db.collection('Comentarios').doc();
+
+    // Guardar el comentario en Firestore
+    await newCommentRef.set({
+      username,
+      email,
+      comentario,
+      fecha: new Date().toISOString() // Guardar fecha de creación
+    });
+
+    res.status(201).send({ message: 'Comentario agregado con éxito', id: newCommentRef.id });
+  } catch (error) {
+    console.error('Error al agregar comentario:', error);
+    res.status(500).send({ error: 'Error al agregar comentario' });
+  }
+});
+
 module.exports = router; // Exporta el enrutador
