@@ -12,10 +12,12 @@ app.use(express.urlencoded({extended: true}))
 
 const GetDataFromFireBase = require("../src/Controller/dbController")
 const AddComment = require("../src/Controller/dbController")
+const GetCommentsFromFireBase = require("../src/Controller/dbController")
 
 //
 app.use("/api", GetDataFromFireBase)
 app.use("/api", AddComment)
+app.use("/api", GetCommentsFromFireBase)
 
 
 // EndPoint para obtener datos de la base de datos
