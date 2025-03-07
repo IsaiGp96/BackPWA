@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require("../config/dbConfig"); // Archivo con la configuración de Firebase
 const router = express.Router(); // Crear una instancia de Router
+const path = require("path");
 
 // Endpoint para obtener Puntuaciones de Firestore
 router.get('/getDataFromFirebase', async (req, res) => {
@@ -74,4 +75,17 @@ router.get('/getCommentsFromFirebase', async (req, res) => {
   }
 });
 
+//Endpoint para obtener Imagenes del Backend
+router.get('/getImageFromBackend/:id', async (req, res) => {
+  const { id } = req.params;
+    const imagePath = path.join(__dirname, "../../assets", `${id}.png`); // Asegúrate de que la imagen exista
+
+    res.download(imagePath, (err) => {
+        if (err) {
+            res.status(404).json({ message: "Imagen no encontrada" });
+            console.log(imagePath)
+        }
+    });
+
+})
 module.exports = router; // Exporta el enrutador
