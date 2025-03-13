@@ -16,9 +16,11 @@
   "bugs": {
     "url": "https://github.com/IsaiGp96/BackPWA/issues"
   },
-  "homepage": "https://github.com/IsaiGp96/BackPWA#readme",
+  "homepage": "https://github.com/IsaiGp96/BackPWA",
   "description": "",
   "dependencies": {
-    "express": "^4.21.2"
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2"
   }
 }
