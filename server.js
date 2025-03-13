@@ -13,10 +13,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 
-const GetDataFromFireBase = require("../src/Controller/dbController")
-const AddComment = require("../src/Controller/dbController")
-const GetCommentsFromFireBase = require("../src/Controller/dbController")
-const GetImageFromBackend = require ("../src/Controller/dbController")
+const GetDataFromFireBase = require("./src/Controller/dbController")
+const AddComment = require("./src/Controller/dbController")
+const GetCommentsFromFireBase = require("./src/Controller/dbController")
+const GetImageFromBackend = require ("./src/Controller/dbController")
 
 //
 app.use("/api", GetDataFromFireBase)

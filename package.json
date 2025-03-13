@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/IsaiGp96/BackPWA/issues"
   },
-  "homepage": "https://github.com/IsaiGp96/BackPWA#readme",
+  "homepage": "https://github.com/IsaiGp96/BackPWA",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
